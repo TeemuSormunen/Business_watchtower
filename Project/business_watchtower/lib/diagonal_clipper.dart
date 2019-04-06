@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+///Used to create fancy effect on background. Basically slices picture and shows only part of it
+class DiagonalClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    Path path = new Path();
+    path.lineTo(0.0, size.height - 60.0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
+
+class HorizontalClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    Path path = new Path();
+    path.lineTo(0.0, size.height - 240.0);
+    path.lineTo(size.width, size.height - 210.0);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
